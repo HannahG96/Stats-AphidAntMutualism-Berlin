@@ -135,7 +135,7 @@ AICc(nullTend)-AICc(bestTend) #deltaAICc of nullmodel (bestmodelAICc with delta 
 
 ##Expl. deviance by date=(???)
 ##Total % of explained deviance=(???)
-#note: I probably transformed the time fractions of tending aphids in % for the BA
+#note: I probably transformed the time fractions of tending aphids in % for the BA(=pahid_IA.sum*100)
 
 #################################################
 ###BEHAVIOURAL TRANSITION RATE
@@ -208,6 +208,7 @@ QAIC(nullGroupDef, chat=deviance(fullGroupDef) / df.residual(fullGroupDef))-QAIC
 
 ##Expl. deviance by N_ant=(???)
 ##Total % of explained deviance=(???)
+            #-->Deviance of the best model is larger than that of the nullmodel...
 
 ############################################################################
 ###GROUP REACTION: MAX.NUMBER OF ATTACKS
@@ -253,16 +254,16 @@ display(nullAntAggr<-lmer(aggr_score.mean~1+(1|plantPop),
                           data=Ant_aggressivity, REML=FALSE))
 AICc(nullAntAggr)-AICc(bestAntAggr) #deltaAICc of nullmodel (bestmodelAICc with delta of 0 - nullmodelAICc)=8.230011
 
-##Expl. deviance by date=
+##Expl. deviance by date=0.0270-->2.7%
 display(lmer(aggr_score.mean~context+N_aphid_s+Seal_500_s+(1|plantPop), 
              data=Ant_aggressivity, REML=FALSE))#dev=123.3
 ##Expl. deviance by Seal_500=0.0314-->3.14%
 display(lmer(aggr_score.mean~context+N_aphid_s+(1|plantPop), 
              data=Ant_aggressivity, REML=FALSE))#dev=127.6
-##Expl. deviance by N_aphid=
+##Expl. deviance by N_aphid=0.0227-->2.27%
 display(lmer(aggr_score.mean~context+(1|plantPop), 
              data=Ant_aggressivity, REML=FALSE))#dev=130.7
-##Expl. deviance by behavioural context=
+##Expl. deviance by behavioural context=0.0446-->4.46%
 ##Total % of explained deviance=0.1257-->12.57%
 
 ###2nd try: ANT AGGRESSIVITY (with all ants included)
@@ -286,17 +287,17 @@ display(bestAntAggr2)#Model Deviance=121.0
 display(nullAntAggr2<-lmer(aggr_score.mean~1+(1|plantPop), 
                           data=Ant_aggressivity_ext, REML=FALSE))
 AICc(nullAntAggr2)-AICc(bestAntAggr2) #deltaAICc of nullmodel (bestmodelAICc with delta of 0 - nullmodelAICc)=13.49444
-##Expl. deviance by temperature=
+##Expl. deviance by temperature=0.0267-->2.67%
 display(lmer(aggr_score.mean~context_ext+date_s+N_aphid_s+Seal_500_s+(1|plantPop), 
              data=Ant_aggressivity_ext, REML=FALSE))#dev=124.9
 ##Expl. deviance by Seal_500=0.0336-->3.36%
 display(lmer(aggr_score.mean~context_ext+date_s+N_aphid_s+(1|plantPop), 
              data=Ant_aggressivity_ext, REML=FALSE))#dev=129.8
-##Expl. deviance by N_aphid=
+##Expl. deviance by N_aphid=0.0418-->4.18%
 display(lmer(aggr_score.mean~context_ext+date_s+(1|plantPop), 
              data=Ant_aggressivity_ext, REML=FALSE))#dev=135.9
-##Expl. deviance by date=
+##Expl. deviance by date=0.0103-->1.03%
 display(lmer(aggr_score.mean~context_ext+(1|plantPop), 
              data=Ant_aggressivity_ext, REML=FALSE))#dev=137.4
-##Expl. deviance by behavioural context=
+##Expl. deviance by behavioural context=0.0583-->5.83%
 ##Total % of explained deviance=0.1706-->17.06%
