@@ -13,9 +13,7 @@ library("doBy")#calculate summary tables
 library("ggplot2")#produce nice figures
 library("varhandle")#remove all objects except...
 library("lme4")#mixed effect models
-#library("sjstats")#???
-library("GGally")
-   #OR:
+library("GGally")#correlation of expl. variables (ggpair-plot)
 library("dplyr")#standardize explanatory variables
 library("arm")#nice visualization of model summary
 library("MuMIn")#exhaustive modelselection using dredge()
